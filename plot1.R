@@ -1,0 +1,6 @@
+plotone <- read.table('electric.txt', header = TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+plotonesub <- subset(plotone,Date %in% c("5/2/2007","6/2/2007") )
+plotonesub$Global_active_power <- as.numeric(plotonesub$Global_active_power)
+png("plot1.png", width=480, height=480)
+hist(plotonesub$Global_active_power, col = "red", xlab = "Global Active Power (Kilowatts)", main = "Global Active Power")
+dev.off()

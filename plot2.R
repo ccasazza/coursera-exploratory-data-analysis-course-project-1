@@ -1,0 +1,6 @@
+plotone <- read.table('electric.txt', header = TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+plotonesub$td <- strptime(paste(plotonesub$Date, plotonesub$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
+plotonesub$Global_active_power <- as.numeric(plotonesub$Global_active_power)
+png("plot2.png", width=480, height=480)    
+plot(plotonesub$td,plotonesub$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+dev.off()
